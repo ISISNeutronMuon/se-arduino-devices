@@ -1,36 +1,38 @@
 #include "Arduino.h"
 
-void isisSetDigitalOut(int pin) {
-  pinMode(pin, OUTPUT);
-}
-
-void isisSetDigitalIn(int pin) {
-  pinMode(pin, INPUT);
-}
-
-String isisReadDigitalString(int pin) {
-  return (digitalRead(pin) ? "True" : "False");
-}
-
-void isisWriteDigitalString(int pin, String state) {
-  if (state == "TRUE") {
-    digitalWrite(pin, HIGH);
+namespace  isis {
+  void setDigitalOut(int pin) {
+    pinMode(pin, OUTPUT);
   }
-  else if (state == "FALSE") {
-    digitalWrite(pin, LOW);
-  }
-}
 
-String isisReadDigitalStringInvert(int pin) {
-  return (digitalRead(pin) ? "False" : "True");
-}
-
-void isisWriteDigitalStringInvert(int pin,String state) {
-  if (state == "TRUE") {
-    digitalWrite(pin, LOW);
+  void setDigitalIn(int pin) {
+    pinMode(pin, INPUT);
   }
-  else if (state == "FALSE") {
-    digitalWrite(pin, HIGH);
-  }
-}
 
+  String readDigitalString(int pin) {
+    return (digitalRead(pin) ? "TRUE" : "FALSE");
+  }
+
+  void writeDigitalString(int pin, String state) {
+    if (state == "TRUE") {
+      digitalWrite(pin, HIGH);
+    }
+    else if (state == "FALSE") {
+      digitalWrite(pin, LOW);
+    }
+  }
+
+  String readDigitalStringInvert(int pin) {
+    return (digitalRead(pin) ? "FALSE" : "TRUE");
+  }
+
+  void writeDigitalStringInvert(int pin,String state) {
+    if (state == "TRUE") {
+      digitalWrite(pin, LOW);
+    }
+    else if (state == "FALSE") {
+      digitalWrite(pin, HIGH);
+    }
+  }
+
+} // end namespace isis

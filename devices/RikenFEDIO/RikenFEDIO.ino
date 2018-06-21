@@ -1,41 +1,42 @@
+/*
+ * This is the primary sketch for the RIKEN DIO requirements
+ */
 #include "ISISSerial.h"
 #include "RikenFEDIO.h"
 #include "ISISStandard.h"
 
-// Global Variables
 void setup() {
-  // Baud should be set up in the specific files
-  isisSerialInit(Baud);
+  // Baud is defined in RikenFEDIO.cpp
+  isis::serialInit(Baud);
 
-  // _ID is the ISIS Standard variable, ID should be set up in the specific files
-  _ID = ID;
+  // _ID is the ISIS Standard variable, ID is defined in RikenFEDIO.cpp
+  isis::_ID = ID;
   
   // call the setup required for the specific purpose of the device
   rikendioSetup();
 }
 
-// Note that the assumption here is that it will all be a single threaded application
 void loop() {
   // Respond to items on the Serial line
-  if (isisSerialAvailable()) {
-    commandAction(isisSerialRead());
+  if (isis::serialAvailable()) {
+    commandAction(isis::serialRead());
   }
-
-  // Undertake any specific behaviour
 }
 
 // Decode and undertake the appropriate commands
 void commandAction(String command) {
   command.toUpperCase(); // Convert to upper case for ease of coding
-  
-  if (checkIsisStandardCommand(command)) {
-    isisActionStandardCommand(command);
+
+  // If it is an ISIS standard command as defined in the ISIS Standard files in the libraries use those libraries to action the commands
+  if (isis::checkIsisStandardCommand(command)) {
+    isis::actionStandardCommand(command);
   }
+  // To keep this sketch simple, and allow for multiple applications within the same one deal with the device commands specifically
   else if (checkRikendioCommand(command)) {
     rikendioActionCommand(command);
   }
   else {
-    isisSetError("Command not recognised");
+    isis::setError("Command not recognised");
   }
 }
 

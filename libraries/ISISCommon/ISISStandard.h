@@ -1,12 +1,17 @@
-#ifndef HEADER_ISISSTANDARD
-
-  extern String isisStandardCommands[];
-  boolean isisValueInArray(int value, int values[], int size);
-  boolean isisValueInArray(String value, String values[], int size);
-  void isisActionStandardCommand(String command);
-  extern String _ID;
-  void isisClearError();
-  void isisSetError(String errorString);
-  boolean checkIsisStandardCommand(String command);
-   
+#ifndef HEADER_STANDARD
+  #define HEADER_STANDARD
+  
+  namespace  isis {
+    // Declarations of variables
+    extern String _ID;
+	
+    // Declarations of functions
+    boolean valueInArray(int value, int values[], int size);
+    boolean valueInArray(String value, String values[], int size);
+    void actionStandardCommand(String command);
+    void clearError();
+    void setError(String errorString);
+    boolean checkIsisStandardCommand(String command);
+  } // End namespace isis
+     
 #endif
