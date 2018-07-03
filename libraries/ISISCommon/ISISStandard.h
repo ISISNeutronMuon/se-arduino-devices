@@ -4,8 +4,8 @@
 // Only define the header if it hasn't been defined previously
 #ifndef HEADER_STANDARD
   #define HEADER_STANDARD
-  
-	// Use the ISIS namespace
+
+  // Use the ISIS namespace
   namespace  isis {
     // Declarations of variables
     extern String _ID;
