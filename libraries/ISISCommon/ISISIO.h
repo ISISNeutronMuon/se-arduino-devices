@@ -1,6 +1,11 @@
+/*
+ * ISISIO.h - Header for the IO interactions
+ */
+// Only define the header if it hasn't been defined previously
 #ifndef HEADER_ISISIO
   #define HEADER_ISISIO
 
+  // Use the ISIS namespace
   namespace  isis {
     // Declarations of functions
     void setDigitalOut(int pin);
@@ -12,4 +17,4 @@
   
   } // end namespace isis
   
-#endif
+#endif // end if header not defined

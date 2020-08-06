@@ -1,6 +1,11 @@
+/*
+ * ISISStandard.h - Header for the standard ISIS functions
+ */
+// Only define the header if it hasn't been defined previously
 #ifndef HEADER_STANDARD
   #define HEADER_STANDARD
-  
+
+  // Use the ISIS namespace
   namespace  isis {
     // Declarations of variables
     extern String _ID;
@@ -14,4 +19,4 @@
     boolean checkIsisStandardCommand(String command);
   } // End namespace isis
      
-#endif
+#endif // end if header not defined

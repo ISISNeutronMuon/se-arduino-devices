@@ -1,6 +1,11 @@
+/*
+ * ISISSerial.h - Header for the serial interactions
+ */
+// Only define the header if it hasn't been defined previously
 #ifndef HEADER_ISISSERIAL
   #define HEADER_ISISSERIAL
 
+  // Use the ISIS namespace
   namespace  isis {
     // Declarations of functions
     void serialInit (int Baud);
@@ -11,4 +16,4 @@
    
   } // end namespace isis
   
-#endif
+#endif // end if header not defined
